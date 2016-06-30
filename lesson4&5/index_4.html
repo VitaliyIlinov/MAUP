@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>lesson4&5</title>
+</head>
+<body>
+<script>
+window.onload=function(){
+
+	text.onclick=function(){
+		var num=Number(document.querySelector('#n').value);
+			if (isNaN(num)){
+				return document.querySelector('#show').innerHTML='Вы ввели не число';
+				}
+			else if (num<=10){
+				 str = num;
+			}else{
+				 str = 'вы ввели больше 10';
+				}
+		//alert(document.querySelector('#show').innerHTML=str);
+		document.querySelector('#show').innerHTML=str;
+		}
+
+}
+
+</script>
+	<label for="text">Ведите число:</label>
+    <input type="text" id ="n">
+	<label id="show"></label><br>
+	<input type="submit" id="text">
+	<h2>Switch</h2>
+<pre>switch (выражение){
+case 1: alert("вывод")break;
+case 2: alert("вывод2")break;
+}</pre>
+<p>сравнение стрoгое(===);case может выбирать только одно значение(нет выражений и нет промежутка)</p>
+	<h2>Цыклы</h2>
+	<h4> While</h4>
+<pre>
+while(условие){
+тело цыкла;
+}
+</pre>
+<script>
+
+function whilee(){
+	var i=1;
+	while(i<=10){
+	document.write("i = "+ i +"<br>");
+	i++;
+	}
+
+	p=prompt('Размерность матрицы','3');
+	var str=document.body.innerHTML;
+	i=0;
+	while(i<p){
+		str+="<input id =inp\""+i+"\"  type=\"text\">&nbsp;&nbsp";
+		i++;
+	}
+	document.body.innerHTML=str;
+	//alert(document.body.innerHTML);
+
+
+//печать матрицы
+//i- строки;
+//j- столбики;
+i=0;j=0;
+while(i<p){
+j=0;
+	while(j<p){
+		str+="<input id =inp" +i+j+" type=\"text\">&nbsp;&nbsp";
+		j++;
+		}
+		str+="<br>";
+		i++;
+	}
+	document.body.innerHTML=str;
+
+}
+whilee();
+</script>
+<h4> For </h4>
+<pre>
+for(инициализация(1);условие(2);изменение счетчика(3)){
+тело цикла
+}
+сделать: 
+x
+xx
+xxx
+xxxx
+xxxxx
+xxxx
+xxx
+xx
+x
+<hr>
+<script>
+for(i=0;i<=5;i++){
+	for(k=0;k<i;k++){
+		document.write('x');
+	}
+	document.write("<br>");
+}
+
+//alert(i);
+</script>
+</pre>
+<p id="p1"></p>
+</body>
+</html>

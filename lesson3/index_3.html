@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Lesson3</title>
+</head>
+<body>
+
+<!--number-->
+
+<!--isNaN(выражение)true-если не число,false-tесли число-->
+<script>
+var res=isNaN(3 * "сорок");//true
+console.log(res);//пишеть в консоле
+document.write(res);//пишет на странице
+var x="stol"*3;
+//if (x==NaN) - не верно
+if(isNaN(x)){ //вот проверка на число  true
+alert('nOT number');
+}else{
+alert('number');
+}
+
+
+<!--string -->
+var str='string';//or
+var str1="string1"; 
+str3= new String('строка 3');
+ //обращение по символьно
+ alert(str3[1]);//т
+str3[1]="л"
+// не меняет символ ,нужно всю строку менять;
+alert(str3);// строка 3
+//так менять:
+alert(str3.substr(0,2));// ст
+str4=str3.substr(0,1)+ "к" + str3.substr(2);//с +к +рока 3
+alert(str4);//скрока 3
+//cсложенние строка
+alert ('5'+'3'+ "см");//53см
+alert (5+3 + "см");//8см
+
+<!-- екранирование: -->
+var str7="Цітата: \"прривет!\"";
+alert(str7);//Цітата: "прривет!";
+ //перенос строки \n ,пример:
+ // alert('fist string \n second_string');
+ var x= null;
+ alert(typeof(x));//object
+
+</script>
+
+<!--img id="img" src="#" onmouseover="getElementById('img').src='#2'">
+<img id="img" src="#" onmouseover="this.src='#2'">  this -замена и можно ад в атрбиту не писать
+-->
+
+<p>Преобразоование к числовому типу Number:
+Number();
+parseInt(string,[основание сис-мы счисления]); 
+parseFloat(string);
+Преобразование к строке:
+String(string);
+Выражение.toString([Основание сис-мы счисления]);
+
+Operation:
+ =- присвоение;
+ x=``12.3;-отбрасывает дробную часть;
+</p>
+ 
+</body>
+</html>

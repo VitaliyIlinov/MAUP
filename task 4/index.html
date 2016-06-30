@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" async defer src="main.js"></script>
+    <title>4&5</title>
+</head>
+<body>
+<p>4.Написать программу тест. Пользователь отвечает на ряд вопросов, выбирая варианты ответов из предложенных.
+    Выполнить проверку результатов и выдать пользователю соответствующее сообщение (например, о количестве правильных
+    ответов)</p>
+<div>
+    <form>
+        <p>1)11+1=?</p>
+        <input type="radio" name="question1" value="1">1<br>
+        <input type="radio" name="question1" value="2">2<br>
+        <input type="radio" name="question1" value="3">3<br>
+        <input type="radio" name="question1" value="4">4<br>
+        <input type="radio" name="question1" value="5">5<br>
+        <input type="radio" name="question1" value="5">5<br>
+        <input type="radio" name="question1" value="5">5<br>
+        <input type="radio" name="question1" value="5">5<br>
+        <p>2)2+2=?</p>
+        <input type="radio" name="question2" value="3"> 3<br>
+        <input type="radio" name="question2" value="4"> 4<br>
+        <input type="radio" name="question2" value="5"> 5<br>
+        <input type="radio" name="question2" value="6"> 6<br>
+
+        <input type="submit" onclick="check()">
+    </form>
+</div>
+
+<script>
+    function check() {
+        // var inp_name=document.getElementsByTagName('input').length;//количество инпутов
+        //  var inp_name=document.getElementsByTagName('input')[5].getAttribute('name');//получаем имя второго инпута
+        /* находим количество вопросов */
+        var inp_name = document.getElementsByTagName('input');
+        var count = 0;
+        for (i = 0; i < document.getElementsByTagName('input').length - 1; i++) {//количество инпутов ("-1" минусую один инпут submit)
+            if (inp_name[i].getAttribute('type') == 'radio') {
+                if (inp_name[i].getAttribute('name') != inp_name[i + 1].getAttribute('name')) {
+                    count += 1;// подсчет количества груп инпутов по атрибуту name
+                }
+            }
+        }
+        alert('количество вопросов: ' + count);//количество груп
+        //-------------
+        var result=[];//массив ответов на вопросы
+        for (i = 1; i <= count; i++) { //от 1го вопроса до общего кол.
+            var input_name = 'question' + i;//пример: атрибут name='question1'->в html -имя атрибута
+            // alert(input_name);
+            /* находим количество вариантов ответов*/
+            var input = document.getElementsByName(input_name);//ловим все варианты ответов по атрибуту
+            var is_checked=false;//проверка выбран ли какой-то вариант
+
+            alert('вопрос - ' + i + ' вариантов ответа ' + input.length);
+            for (j = 0; j < (input).length; j++) {//проверяем каждый варианты ответов навыбор
+                if (input[j].checked) { //если  выбран ответ то
+                    alert('выбран вариант - ' + input[j].getAttribute('value'));
+                    is_checked=true;
+                    result[i]=input[j].getAttribute('value');
+                    break;
+                }
+            }
+            if(is_checked==false){
+                alert('ВЫБЕРИТЕ ответ на вопрос'+i);
+                return false;
+            }
+        }
+        /*проверка на ответы*/
+        alert(result.length-1);//массив с индексом 0 -пустой
+
+    }
+</script>
+</body>
+</html>

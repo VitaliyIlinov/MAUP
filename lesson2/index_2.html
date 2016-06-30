@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>lesson2</title>
+    <link href="index_2.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" async src="main_2.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <p>header</p>
+        <p id="header">
+            <!--<script>clock('header');</script>-->
+        </p>
+    </div>
+    <div class="menu">
+        <ul>
+            <li>lesson 1
+                <ul>
+                    <li onclick="showHide('p')">Формирование стилей</li>
+                    <li onclick="showHide('table')">Таблица & iframe</li>
+                </ul>
+            </li>
+            <li onclick="showHide('example_1')">Javascript Примеры</li>
+            <li>Javascript Основы
+                <ul>
+                    <li onclick="showHide('num')">числа</li>
+                    <li onclick="showHide('string')">строки</li>
+                    <li onclick="">екранирование</li>
+                    <li onclick="">условия</li>
+                    <li onclick="">циклы</li>
+                </ul>
+            </li>
+        </ul>
+        <input id="btn_calc" type="button" name="calc" value="калькулятор"
+               onclick="showHide('calc')">
+        <input type="button" name="form" value="форма" onclick="showHide('form')">
+    </div>
+    <div class="content">
+        <div class="table" id="table">
+            <table>
+                <tr>
+                    <th colspan="4">Заглавная(Пример)</th>
+                </tr>
+                <tr class="tr">
+                    <td rowspan="3">Материалы урока</td>
+                    <td><a href="http://www.wisdomweb.ru/" target="iframe1" onclick="showHide('iframe1')">Справочник
+                        CSS</a>
+                        -wisdomweb.ru/
+                    </td>
+                    <td><a href="http://vvz.nw.ru/Lessons/HTML_Colors/HTMLcolors_HSB.htm" target="iframe1"
+                           onclick="showHide('iframe1')">Цвета CSS</a>-http://vvz.nw.ru//
+                    </td>
+                    <td>Обычная ячейка 1 строки</td>
+                </tr>
+                <tr class="tr">
+                    <td><a href="http://css.manual.ru/" target="iframe1" onclick="showHide('iframe1')">Справочник
+                        CSS</a>
+                        -css.manual.ru/
+                    </td>
+                    <td>Обычная ячейка 2строки</td>
+                    <td>Обычная ячейка 2строки</td>
+                </tr>
+                <tr>
+                    <td colspan="3">Обычная ячейка 3 строки</td>
+                </tr>
+            </table>
+            <p>tr - строка; td-ячейки в строке; colspan -обьеденение строк; rowspan-обьеденение столбцов</p>
+            <p>В iframe можно передать сылку.Например: в тег "a" атрибут
+                target="iframe1" - имя окна или фрейма, куда браузер будет загружать документ.</p>
+        </div>
+        <iframe name="iframe1" id="iframe1"></iframe>
+        <div class="p" id="p">
+            <p class="test"><em><strong>Формирование по классу(class="test"):</strong></em></p>
+            <p>.test{background-color:red}</p>
+            <p id="test2"><em><strong>формирование по ID(id="test2") :</strong></em></p>
+            <p>#test2{background-color:black;}</p>
+            <p><em><strong>Формирование по тегу:</strong></em></p>
+            <p>p{background-color:red;}</p>
+            <p style="background-color:grey;"><em><strong>Формирование по стилю внутри(p
+                style="background-color:grey;):</strong></em></p>
+            <p>p style="background-color:grey; "</p>
+        </div>
+        <div id="example_1">
+            <h2>Примеры:</h2>
+            <ol>
+                <li onmouseover="this.style.fontSize='20pt'" onmouseout="this.style.fontSize='';"
+                    onclick="document.getElementById('code').innerHTML=this.outerHTML;showHide('code');">показать код
+                </li>
+                <li><input type="button" value="цвета фона кнопки изменить" onclick="this.style.background='blue';
+                document.getElementById('code').innerHTML=this.outerHTML;showHide('code');"></li>
+                <li><input type="button" value="open Image" onclick="showHide('image')"></li>
+            </ol>
+            <p>win dow.onload = function () {}- загрузка как загруззилась страница</p>
+            <p>onclick="this.style.background='blue'. this означает что - етот обьект</p>
+            <img id="image" src="http://www.pnas.org/site/misc/images/15-04709.500.jpg" alt="alternative text"/>
+            <textarea id="code" disabled></textarea>
+        </div>
+        <div id="num">
+            <p>var res=isNaN(3 * "сорок"); //true</p>
+            <p>console.log(res); //пишеть в консоле
+            <p>document.write(res); //пишет на странице</p>
+            <p>var x="stol"*3;</p>
+            <p>//if (x==NaN) - не верно</p>
+            <p>if(isNaN(x)){ //вот проверка на число true</p>
+            <p> document.write('not number');</p>
+            <p> }else{</p>
+            <p> document.write('number');</p>
+            <p> }</p>
+        </div>
+        <div id="string">
+            <h2>Строки:</h2>
+<pre>var str='string';  //or
+var str1="string1";
+str3= new String('строка 3');
+обращение по символьно:
+alert(str3[1]);         //т
+str3[1]="л"
+// не меняет символ ,нужно всю строку менять;
+alert(str3);            // строка 3
+//так менять:
+alert(str3.substr(0,2)); // ст
+str4=str3.substr(0,1)+ "к" + str3.substr(2);//с +к +рока 3
+alert(str4);            //скрока 3
+//cсложенние строка
+alert ('5'+'3'+ "см");  //53см
+alert (5+3 + "см");     //8см</pre>
+        </div>
+        <div class="calc " id="calc" onclick="calc(event.target)" onkeypress="calcKey(event)">
+            <input type="text" id="ShowNumbers">
+            <input type="button" name="1" value="1">
+            <input type="button" name="2" value="2">
+            <input type="button" name="3" value="3">
+            <input type="button" name="+" value="+">
+            <input type="button" name="4" value="4">
+            <input type="button" name="5" value="5">
+            <input type="button" name="6" value="6">
+            <input type="button" name="-" value="-">
+            <input type="button" name="7" value="7">
+            <input type="button" name="8" value="8">
+            <input type="button" name="9" value="9">
+            <input type="button" name="*" value="*">
+            <input type="button" name="0" value="0">
+            <input type="button" name="/" value="/">
+            <input type="button" name="," value=",">
+            <input type="button" name="=" value="=" id="eqv">
+        </div>
+        <div class="form" id="form">
+            <form>
+                <div class="text">
+                    <label for="text">text:</label>
+                    <input type='text' id="text" placeholder='text'>
+                </div>
+                <div class="password">
+                    <label for="password">Password:</label>
+                    <input type='password' id="password" placeholder='password'>
+                </div>
+                <div class="email">
+                    <label for="email">Email:</label>
+                    <input type='email' id="email" placeholder='email'>
+                </div>
+                <input type="submit"></p>
+            </form>
+        </div>
+    </div>
+    <div class="footer">
+        <p> id="p1" onmouseover="document.getElementById('p1').style.fontSize='20pt'";
+            onmouseout="document.getElementById('p1').style.fontSize='';" -то что через дефис в css то в js с
+            большой буквы.Оnmouseover-наведение.Оnmouseout-когда мыша не наведена </p>
+        <p>document.body.style.background='red'</p>
+        <p>document.getElementById('Id').innerHTML='red' - меняет значение</p>
+        <p>document.getElementById('Id').style.background='red'</p>
+        <p>синтаксис: "document"."дальше что ловить (тег "body" или по ид"getElementById('Id')" ) + "style" -стилль
+        <p>input type="button" -не закрівающий, button type="button" -закрівающший
+            сss "точка""свойство css" i ='значение' </p>
+        <script>
+            // clock("header");
+        </script>
+    </div>
+</div>
+</body>
+</html>
+<!--  ДЗ: вставить калькулятор в форму див, и вставить форму регистрации в див  -->
